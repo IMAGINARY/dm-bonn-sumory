@@ -1,0 +1,16 @@
+{
+  "instructions": "Ziel des Spiels ist es, eine möglichst hohe Summe zu erreichen. Decke die Zahlenkarten auf. Du hast %turns Spielzüge. Du darfst Karten mehrfach auswählen.",
+  "draws": "Spielzüge übrig",
+  "sum": "Summe",
+  "restart": "Neustart",
+  "final_result": "Endergebnis:",
+  "result_better": "Das ist %percentage% <em>besser</em> als die durchschnittlich beste Strategie.",
+  "result_worse": "Das ist %percentage% <em>schlechter</em> als die durchschnittlich beste Strategie.",
+  "explanation_1": "Die beste Strategie hat zwei Phasen",
+  "explanation_2": "<strong>Erforschen: </strong> Decke neue Zahlen auf.",
+  "explanation_3": "<strong>Ausnutzen: </strong> Wähle immer wieder die höchste gefundene Zahl aus.",
+  "explanation_4": "KIs lernen, indem sie abwechselnd Neues ausprobieren und das machen, was sie schon gut können. Wechselst du in deinem Leben manchmal auch zwischen diesen Strategien hin und her?",
+  "analysis_chart_y_label": "Durchschnittssumme",
+  "analysis_chart_x_label": "Anzahl der Erkundungsversuche",
+  "play_again": "Spiel neu starten"
+}

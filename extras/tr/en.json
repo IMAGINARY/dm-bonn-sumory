@@ -1,0 +1,16 @@
+{
+  "instructions": "Flip cards to reveal numbers. You have %turns turns to reach the highest possible sum. You can select an already flipped card as many times as you want.",
+  "draws": "turns left",
+  "sum": "total",
+  "restart": "Restart",
+  "final_result": "Final result:",
+  "result_better": "This is %percentage% <em>better</em> than the average best strategy.",
+  "result_worse": "This is %percentage% <em>worse</em> than the average best strategy.",
+  "explanation_1": "The best strategy has two phases:",
+  "explanation_2": "<strong>Explore: </strong> Find new numbers.",
+  "explanation_3": "<strong>Exploit: </strong> Repeatedly select the highest number found.",
+  "explanation_4": "AIs learn by alternating between the best known action and exploring new possibilities. Do you ever alternate between these strategies in your life?\n",
+  "analysis_chart_y_label": "Average sum",
+  "analysis_chart_x_label": "Number of turns of exploration",
+  "play_again": "Play again"
+}
