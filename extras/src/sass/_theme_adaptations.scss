@@ -1,0 +1,111 @@
+@use "../../vendor/baloo-2/scss/mixins" as Baloo2;
+@include Baloo2.faces($weights: 800, $display: auto, $directory: "/vendor/baloo-2/files");
+
+@mixin baloo2-extra-bold {
+  font-family: 'Baloo 2', sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+$c-black: #000;
+$c-white: #fff;
+$c-yellow: rgb(255 238 0);
+$c-orange: rgb(234 91 12);
+$c-orange-light: #f9bfa7;
+$c-orange-light-dark: rgb(232 179 156);
+$c-red: rgb(255 46 8);
+$c-brown: rgb(127 9 10);
+$c-brown-light: #8d3a0c;
+
+body {
+  @include baloo2-extra-bold;
+
+  background-color: $c-orange;
+}
+
+.s-btn {
+  background-color: $c-yellow;
+  border-color: $c-yellow;
+  color: $c-brown;
+  font-size: 2.2rem;
+  line-height: 1;
+  white-space: nowrap;
+  min-width: 8rem;
+  min-height: 5rem;
+
+  .fa-2x {
+    font-size: 3rem;
+  }
+}
+
+.util-menu {
+  height: 8.5em;
+}
+
+.instructions {
+  font-size: 2.5em;
+  line-height: 1.3;
+}
+
+.sumory-card {
+  &.visible {
+    .sumory-card-front {
+      background-color: $c-yellow;
+      color: $c-brown;
+    }
+  }
+  .sumory-card-back {
+    background-color: $c-brown-light;
+    border-color: $c-brown-light;
+  }
+}
+
+.status {
+  top: 2vh;
+}
+
+.status-box {
+  .label {
+    top: 2.5em;
+    font-size: 2em;
+    color: $c-white;
+  }
+
+  .value {
+    font-size: 3.7em;
+  }
+}
+
+.sumory-analysis-chart {
+  display: none;
+}
+
+.sumory-analysis .sumory-analysis-text {
+  font-size: 3rem;
+  margin-bottom: 1.2em;
+  margin-top: 0.7em;
+}
+
+.sumory-analysis .sumory-analysis-explanation {
+  width: 66%;
+  padding: 0;
+  margin: 0 17% 2em;
+  border: none;
+  font-size: 2rem;
+
+  strong {
+    color: $c-yellow;
+  }
+}
+
+.s-modal {
+  background-color: $c-orange;
+  border: none;
+}
+
+.s-dropdown-menu {
+  .s-dropdown-item {
+    font-size: 2rem;
+    color: $c-brown;
+  }
+}
