@@ -9,7 +9,7 @@
   },
   "scripts": {
     "copy-font": "cp -R ./node_modules/@fontsource/baloo-2/ ./dist/vendor/baloo-2",
-    "build": "rm -rf ./dist && degit github:IMAGINARY/sumory#v1.4.0 --force dist && npm run copy-font && cp -R ./extras/ ./dist && cd ./dist/src && npm install && npm run build && cd .. && cd .."
+    "build": "rm -rf ./dist && degit github:IMAGINARY/sumory#v1.4.0 --force dist && npm run copy-font && cp -R ./extras/. ./dist/. && cd ./dist/src && npm install && npm run build && cd .. && cd .."
   },
   "repository": {
     "type": "git",
