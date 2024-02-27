@@ -7,7 +7,7 @@
     "degit": "^2.8.4"
   },
   "scripts": {
-    "build": "rm -rf ./dist && degit github:IMAGINARY/sumory#v1.3.1 --force dist && cp -R ./extras/* ./dist && cd ./dist/src && npm install && npm run build && cd .. && cd .."
+    "build": "rm -rf ./dist && degit github:IMAGINARY/sumory#v1.3.1 --force dist && cp -R ./extras/ ./dist && cd ./dist/src && npm install && npm run build && cd .. && cd .."
   },
   "repository": {
     "type": "git",

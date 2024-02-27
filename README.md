@@ -1,4 +1,4 @@
-# dmbonn-sumory
+# dm-bonn-sumory
 
 Deutsches Museum Bonn version of the Sumory exhibit
 
