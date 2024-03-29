@@ -5,10 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "@fontsource/baloo-2": "^5.0.18",
+    "cpx": "^1.5.0",
     "degit": "^2.8.4"
   },
   "scripts": {
     "copy-font": "cp -R ./node_modules/@fontsource/baloo-2/ ./dist/vendor/baloo-2",
+    "watch:copy": "cpx './extras/**' './dist/' -w",
+    "watch:compile": "cd ./dist/src && npm run watch",
     "build": "rm -rf ./dist && degit github:IMAGINARY/sumory#v1.5.0 --force dist && npm run copy-font && cp -R ./extras/. ./dist/. && cd ./dist/src && npm install && npm run build && cd .. && cd .."
   },
   "repository": {

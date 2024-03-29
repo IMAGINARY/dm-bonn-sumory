@@ -15,6 +15,13 @@ npm run build
 
 This will create a `dist` directory with the compiled exhibit. This directory can be served by any web server.
 
+## Development
+
+To ease development you can run two separate tasks in parallel: `watch:copy` and `watch:compile`
+
+The first one will copy any changes within ./extras to ./dist, while the second one will recompile 
+the exhibit after the changes are copied.
+
 ## Credits
 
 This adaptation was developed by Eric Londaits for Imaginary gGmbH.
