@@ -16,6 +16,7 @@ $c-orange-light-dark: rgb(232 179 156);
 $c-red: rgb(255 46 8);
 $c-brown: rgb(127 9 10);
 $c-brown-light: #8d3a0c;
+$c-off-white: #ebdad0;
 
 body {
   @include baloo2-extra-bold;
@@ -40,6 +41,20 @@ body {
 
 .util-menu {
   height: 8.5em;
+  z-index: 1000;
+}
+
+.sumory-game {
+  .sumory-board {
+    transition: transform 1s ease-in-out;
+    transform-origin: left center;
+  }
+
+  &.sumory-game-over {
+    .sumory-board {
+      transform: scale(0.5);
+    }
+  }
 }
 
 .instructions {
@@ -50,8 +65,13 @@ body {
 .sumory-card {
   &.visible {
     .sumory-card-front {
-      background-color: $c-yellow;
+      background-color: $c-off-white;
       color: $c-brown;
+    }
+  }
+  &.selected {
+    .sumory-card-front {
+      background-color: $c-yellow;
     }
   }
   .sumory-card-back {
@@ -83,7 +103,7 @@ body {
 .sumory-analysis .sumory-analysis-text {
   font-size: 3rem;
   margin-bottom: 1.2em;
-  margin-top: 0.7em;
+  margin-top: 0.2em;
 }
 
 .sumory-analysis .sumory-analysis-explanation {
@@ -98,10 +118,77 @@ body {
   }
 }
 
-.s-modal {
-  background-color: $c-orange;
-  border: none;
+.s-modal-with-overlay {
+  .overlay {
+    display: none;
+  }
 }
+
+.s-modal-with-overlay.enter-done .s-modal {
+  margin-top: 3em;
+}
+
+.s-modal-scroll {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .s-modal {
+    padding: 0;
+    margin: 0 1em 0 auto;
+    border: 0.6rem solid white;
+    background-color: $c-orange;
+    width: 50%;
+
+    .s-modal-content {
+      padding: 1em 2em;
+      background-color: transparent;
+
+      .sumory-analysis {
+        .sumory-analysis-text {
+          text-align: left;
+          font-size: 2.5rem;
+        }
+        .sumory-analysis-explanation {
+          width: 100%;
+          margin: 0;
+        }
+      }
+
+      .footer {
+        display: none;
+      }
+    }
+  }
+}
+
+.s-modal-with-overlay {
+  .s-modal {
+    opacity: 1;
+    margin-top: 3em;
+    transform: translate(110%, 0);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &.enter-active, &.enter-done, &.exit {
+    .s-modal {
+      opacity: 1;
+      margin-top: 3em;
+      transform: translate(0, 0);
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+
+  &.exit-active, &.exit-done {
+    .s-modal {
+      margin-top: 3em;
+      opacity: 1;
+      transform: translate(110%, 0);
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+}
+
 
 .s-dropdown-menu {
   .s-dropdown-item {
