@@ -4,7 +4,7 @@ on:
   # Run on pushes to the default branch
   push:
     branches:
-      [$default-branch]
+      - main
 
   # ... Also run manually
   workflow_dispatch:
