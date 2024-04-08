@@ -23,6 +23,7 @@ jobs:
       pull-requests: read
     env:
       RELEASE_ZIP_FILENAME: ${{ github.event.repository.name }}-${{ github.ref_name }}.zip
+      RELEASE_TAR_GZ_FILENAME: ${{ github.event.repository.name }}-${{ github.ref_name }}.tar.gz
     steps:
       - name: Checkout
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11
@@ -47,12 +48,34 @@ jobs:
           writeToFile: false
           includeInvalidCommits: true
 
-      - name: Compress files
+      - name: Create Zip Archive
         run: |
-          (cd dist && zip -r ../$RELEASE_ZIP_FILENAME . -x "node_modules/*" "*/node_modules/*" $(test -f ../.releaseignore && echo "-x@../.releaseignore"))
+          echo "::start:: Creating zip archive..."
+          (cd dist && \
+            zip \
+              -r ../$RELEASE_ZIP_FILENAME . \
+              -x "node_modules/*" "*/node_modules/*" \
+              $(test -f ../.releaseignore && echo "-x@../.releaseignore")\
+          )
+          echo "::end:: Created zip archive."
+
+      - name: Create Tar Gz Archive
+        run: |
+          echo "::start:: Creating tar.gz archive..."
+          (cd dist && \
+          tar \
+            -czv -f ../$RELEASE_TAR_GZ_FILENAME \
+            --exclude "node_modules/*" \
+            --exclude "*/node_modules/*" \
+            $(test -f ../.releaseignore && echo "--exclude-from ../.releaseignore") \
+            .
+          )
+          echo "::end:: Created tar.gz archive."
 
       - name: Create the release
         uses: softprops/action-gh-release@4634c16e79c963813287e889244c50009e7f0981
         with:
-          files: ${{ env.RELEASE_ZIP_FILENAME }}
+          files: |
+            ${{ env.RELEASE_ZIP_FILENAME }}
+            ${{ env.RELEASE_TAR_GZ_FILENAME }}
           body: ${{ steps.build_changelog.outputs.changes }}
